@@ -1,0 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    TreeNode answer;
+    public TreeNode searchBST(TreeNode root, int val) {
+        if(root == null) return root;
+        if(root.val == val) {
+            answer = new TreeNode(root.val, root.left, root.right);
+            return answer;
+        } else {
+            searchBST(root.left, val);
+            searchBST(root.right, val);
+        }
+        return answer;
+    }
+}
+
+/*
+    This problem is quite easy, we will search for value of the root equal to val
+    So, we get "if(root.val == val)" and creat a new treenode to be an answer.
+    After that, we add a value, left node, and right node of the root into our answer.
+
+    if the value of the root isn't equal to val, we will travel into the left node, and the right node of the root via recusion.  
+
+            searchBST(root.left, val);
+            searchBST(root.right, val);
+
+    then, we return our answer.
+*/
