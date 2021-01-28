@@ -1,0 +1,51 @@
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+        HashSet<Character> jewel = new HashSet<>();
+        char[] jw = jewels.toCharArray();
+        char[] st = stones.toCharArray();
+        for(char c : jw) jewel.add(c);
+        int ans =0;
+        if(stones.length()==0) return ans;
+        for(char c : st){
+            if(jewel.contains(c)) {
+                  ans++;
+            }
+         }
+        return ans;
+    }
+}
+*/
+    This problem is a popular problem, this problem need us to find the all jewels in the stones. 
+
+    
+    to make it easier, we turn all String into arrays of char.
+    
+       
+        char[] jw = J.toCharArray();
+        char[] st = S.toCharArray();
+
+
+    First, we need to create a set of jewel that we can easily add jewels into this set. => 
+
+    
+       HashSet<Character> jewel = new HashSet<>();
+        for(char c : jw) jewel.add(c);
+
+
+    Also we can use this set to check for jewel in the stones array.
+    We creat an ans to count the jewels and use return it as answer
+
+    
+        int ans =0;
+
+    We can find the jewels easily by .contains method of set
+
+    
+        for(char c : st){
+            if(jewel.contains(c)) {
+                  ans++;
+            }
+         }
+        return ans;
+
+/*
