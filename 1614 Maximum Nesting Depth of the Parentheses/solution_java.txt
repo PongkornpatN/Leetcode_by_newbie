@@ -1,0 +1,51 @@
+class Solution {
+    public int maxDepth(String s) {
+        int count = 0 ;
+        int max = 0;
+        for(int i = 0; i< s.length(); i++){
+            
+            if(s.charAt(i) == '('){
+                count++;
+            } else if (s.charAt(i) == ')'){
+                if(max < count){
+                    max = count;
+                }
+                count--;
+            }
+         }
+        
+        return max;
+    }
+}
+
+/*
+This problem is not that hard. the depth of parentheses of each character is counted by how many '(' in front of it.
+
+So, we create 2 variables to count and check for max depth. 
+
+        int count = 0 ;
+        int max = 0; 
+        
+        
+            if(s.charAt(i) == '('){
+                count++;
+            }
+
+
+However, the depth of '(' is canceled by ')'; eventhough there is no character, we count it as a pair anyway. 
+
+
+
+            else if (s.charAt(i) == ')'){
+                if(max < count){
+                    max = count;
+                }
+                count--;
+            } 
+        
+then we return max as an answer 
+
+
+        return max;
+
+*/
