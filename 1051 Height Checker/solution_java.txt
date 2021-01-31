@@ -1,0 +1,15 @@
+import java.util.*;
+class Solution {
+    public int heightChecker(int[] heights) {
+        int[] answer = heights.clone();
+        Arrays.sort(answer);
+        int count = 0;
+        for(int i = 0; i< answer.length ; i++){
+            if(answer[i] != heights[i]){
+                count++;
+            }
+        }
+        return count;
+        
+    }
+}
